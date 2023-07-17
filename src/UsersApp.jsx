@@ -2,6 +2,16 @@ import { UserForm } from "./components/UserForm"
 import { UsersList } from "./components/UsersList"
 
 export const UsersApp = () => {
+
+    const initialUsers = [
+        {
+            id:0,
+            username: 'Pepe',
+            password: '12345',
+            email: 'pepe@correo.com'
+        },
+    ]
+
     return(
         <>
             <div className="container my-4">
@@ -11,7 +21,7 @@ export const UsersApp = () => {
                         <UserForm />
                     </div>
                     <div className="col">
-                        <UsersList />
+                        <UsersList users={ initialUsers }/>
                     </div>
                 </div>
             </div>
