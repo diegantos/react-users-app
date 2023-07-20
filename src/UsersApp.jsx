@@ -37,7 +37,7 @@ export const UsersApp = () => {
   };
 
   const handlerUserSelectedForm = (user) => {
-    console.log(user)
+    setUserSelected({...user})
   }
 
   return (
@@ -49,6 +49,7 @@ export const UsersApp = () => {
             <UserForm
               initialUserForm={initialUserForm}
               handlerAddUser={handlerAddUser}
+              userSelected={userSelected}
             />
           </div>
           <div className="col">
