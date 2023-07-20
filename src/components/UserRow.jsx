@@ -1,4 +1,4 @@
-export const UserRow = ({id, username, email, password, handlerRemoveUser, handlerUserSelectedForm}) => {
+export const UserRow = ({id, username, email, handlerRemoveUser, handlerUserSelectedForm}) => {
 
   return (
     <>
@@ -15,7 +15,6 @@ export const UserRow = ({id, username, email, password, handlerRemoveUser, handl
                 id,
                 username,
                 email,
-                password,
               })
             }
           >
