@@ -1,4 +1,4 @@
-import { useReducer } from "react";
+import { useReducer, useState } from "react";
 import { UserForm } from "./components/UserForm";
 import { UsersList } from "./components/UsersList";
 import { usersReducer } from "./reducers/usersReducer";
@@ -20,6 +20,7 @@ const initialUserForm = {
 
 export const UsersApp = () => {
   const [users, dispatch] = useReducer(usersReducer, initialUsers);
+  const [userSelected, setUserSelected] = useState(initialUserForm)
 
   const handlerAddUser = (user) => {
     dispatch({
@@ -34,6 +35,10 @@ export const UsersApp = () => {
       payload: id,
     });
   };
+
+  const handlerUserSelectedForm = (user) => {
+    console.log(user)
+  }
 
   return (
     <>
@@ -52,7 +57,10 @@ export const UsersApp = () => {
                 No hay usuarios creados en el sistema
               </div>
             ) : (
-              <UsersList handlerRemoveUser={handlerRemoveUser} users={users} />
+              <UsersList 
+                handlerUserSelectedForm={ handlerUserSelectedForm } 
+                handlerRemoveUser={handlerRemoveUser} 
+                users={users} />
             )}
           </div>
         </div>
