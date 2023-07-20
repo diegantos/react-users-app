@@ -11,7 +11,7 @@ export const UsersApp = () => {
     handlerAddUser,
     handlerRemoveUser,
     handlerUserSelectedForm,
-  } = useUsers;
+  } = useUsers()
 
   return (
     <>
