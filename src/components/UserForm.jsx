@@ -13,7 +13,6 @@ export const UserForm = ({ handlerAddUser, initialUserForm, userSelected }) => {
   },[userSelected])
 
   const onInputChange = (event) => {
-    console.log(event.target.value);
     const { name, value } = event.target;
     setUserForm({
       ...userForm,
@@ -69,6 +68,7 @@ export const UserForm = ({ handlerAddUser, initialUserForm, userSelected }) => {
         <button className="btn btn-primary" type="submit">
           {id > 0 ? "Editar" : "Crear"}
         </button>
+        <button className="btn btn-primary mx-2">Cerrar</button>
       </form>
     </>
   );

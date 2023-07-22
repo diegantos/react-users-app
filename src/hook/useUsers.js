@@ -21,17 +21,12 @@ const initialUserForm = {
 export const useUsers = () => {
   const [users, dispatch] = useReducer(usersReducer, initialUsers);
   const [userSelected, setUserSelected] = useState(initialUserForm);
+  const [visibleForm, setVisibleForm] = useState(false)
 
   const handlerAddUser = (user) => {
-    let type;
-    if (user.id === 0) {
-      type = "addUser";
-    } else {
-      type = "updateUser";
-    }
 
     dispatch({
-      type: type,
+      type: (user.id === 0) ? 'addUser' : 'updateUser',
       payload: user,
     });
 
@@ -42,6 +37,8 @@ export const useUsers = () => {
         : "El usuario ha sido actualizado correctamente",
       "success"
     );
+    setVisibleForm(false)
+    setUserSelected(initialUserForm)
   };
 
   const handlerRemoveUser = (id) => {
@@ -66,6 +63,7 @@ export const useUsers = () => {
   };
 
   const handlerUserSelectedForm = (user) => {
+    setVisibleForm(true)
     setUserSelected({ ...user });
   };
 
@@ -73,6 +71,7 @@ export const useUsers = () => {
     users,
     userSelected,
     initialUserForm,
+    visibleForm,
 
     handlerAddUser,
     handlerRemoveUser,
