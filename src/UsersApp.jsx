@@ -7,7 +7,7 @@ export const UsersApp = () => {
     users,
     userSelected,
     initialUserForm,
-
+    visibleForm,
     handlerAddUser,
     handlerRemoveUser,
     handlerUserSelectedForm,
@@ -18,15 +18,20 @@ export const UsersApp = () => {
       <div className="container my-4">
         <h2>App de usuarios</h2>
         <div className="row">
+            {!visibleForm || (
+              <div className="col">
+                <UserForm
+                  initialUserForm={initialUserForm}
+                  handlerAddUser={handlerAddUser}
+                  userSelected={userSelected}
+                />
+              </div>
+            )}
           <div className="col">
-            <UserForm
-              initialUserForm={initialUserForm}
-              handlerAddUser={handlerAddUser}
-              userSelected={userSelected}
-            />
-          </div>
-          <div className="col">
-            <button className="btn btn-primary my-2">Nuevo usuario</button>
+            {visibleForm || (
+              <button className="btn btn-primary my-2">Nuevo usuario</button>
+            )}
+
             {users.length === 0 ? (
               <div className="alert alert-warning">
                 No hay usuarios creados en el sistema
