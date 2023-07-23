@@ -11,6 +11,8 @@ export const UsersApp = () => {
     handlerAddUser,
     handlerRemoveUser,
     handlerUserSelectedForm,
+    handlerOpenForm,
+    handlerCloseForm
   } = useUsers()
 
   return (
@@ -24,12 +26,13 @@ export const UsersApp = () => {
                   initialUserForm={initialUserForm}
                   handlerAddUser={handlerAddUser}
                   userSelected={userSelected}
+                  handlerCloseForm={handlerCloseForm}
                 />
               </div>
             )}
           <div className="col">
             {visibleForm || (
-              <button className="btn btn-primary my-2">Nuevo usuario</button>
+              <button className="btn btn-primary my-2" onClick={handlerOpenForm}>Nuevo usuario</button>
             )}
 
             {users.length === 0 ? (
