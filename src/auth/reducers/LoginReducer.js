@@ -6,7 +6,7 @@ export const LoginReducer = (state = {}, action) => {
                 isAuth: true,
                 user: action.payload,
             }
-        case 'logout'
+        case 'logout':
             return {
                 isAuth: false,
             }
