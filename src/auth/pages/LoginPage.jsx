@@ -24,6 +24,13 @@ export const LoginPage = () => {
     if(!username || !password){
       Swal.fire('Error de validación', 'Username y password requeridos', 'error')
     }
+    
+    if(username === 'admin' && password === '12345'){
+      //handlerLogin()
+    }else{
+      Swal.fire('Error de validación', 'Username y password requeridos', 'error')
+    }
+    setLoginForm(initialLoginForm)
   }
 
   return (
