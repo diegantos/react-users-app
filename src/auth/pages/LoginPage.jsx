@@ -25,7 +25,7 @@ export const LoginPage = ({ handlerLogin }) => {
       Swal.fire('Error de validación', 'Username y password requeridos', 'error')
     }
     
-    handlerLogin(username, password)
+    handlerLogin({username, password})
     
     setLoginForm(initialLoginForm)
   }
