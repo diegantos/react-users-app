@@ -1,5 +1,5 @@
 
-export const Navbar = ({ handlerLogout }) => {
+export const Navbar = ({ handlerLogout, login }) => {
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
@@ -19,7 +19,10 @@ export const Navbar = ({ handlerLogout }) => {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <span className="nav-item nav-link text-primary"></span>
+            <span className="nav-item nav-link text-primary mx-3">
+                Hello {login.user.username}
+            </span>
+            <button className="btn btn-outline-success" onClick={handlerLogout}>Logout</button>
           </div>
         </div>
       </nav>
