@@ -2,6 +2,7 @@ import { useReducer } from "react";
 import Swal from "sweetalert2";
 import { LoginReducer } from "../reducers/LoginReducer"
 import { loginUser } from "../services/authService";
+import { useNavigate } from "react-router-dom";
 
 const initialLogin = JSON.parse(sessionStorage.getItem("login")) || {
   isAuth: false,
@@ -11,6 +12,7 @@ const initialLogin = JSON.parse(sessionStorage.getItem("login")) || {
 export const useAuth = () => {
 
   const [login, dispatch] = useReducer(LoginReducer, initialLogin);
+  const navigate = useNavigate()
 
   const handlerLogin = ({ username, password }) => {
     const isLogin = loginUser({ username, password })
@@ -27,6 +29,7 @@ export const useAuth = () => {
           user: user,
         })
       );
+      navigate('/users')
     } else {
       Swal.fire(
         "Error de validación",
