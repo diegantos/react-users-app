@@ -1,16 +1,21 @@
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 
-export const UserForm = ({ handlerAddUser, initialUserForm, userSelected, handlerCloseForm }) => {
+export const UserForm = ({
+  handlerAddUser,
+  initialUserForm,
+  userSelected,
+  handlerCloseForm,
+}) => {
   const [userForm, setUserForm] = useState(initialUserForm);
   const { username, password, email, id } = userForm;
 
-  useEffect(()=>{
+  useEffect(() => {
     setUserForm({
-      ...userSelected, 
-      password: '',
-    })
-  },[userSelected])
+      ...userSelected,
+      password: "",
+    });
+  }, [userSelected]);
 
   const onInputChange = (event) => {
     const { name, value } = event.target;
@@ -24,9 +29,10 @@ export const UserForm = ({ handlerAddUser, initialUserForm, userSelected, handle
     event.preventDefault();
     if (!username || (!password && id === 0) || !email) {
       Swal.fire(
-        "Error de validación", 
-        "Debe completar todos los campos del formulario", 
-        "error");
+        "Error de validación",
+        "Debe completar todos los campos del formulario",
+        "error"
+      );
       return;
     }
 
@@ -35,9 +41,9 @@ export const UserForm = ({ handlerAddUser, initialUserForm, userSelected, handle
   };
 
   const onCloseForm = () => {
-    handlerCloseForm()
-    setUserForm(initialUserForm)
-  }
+    handlerCloseForm();
+    setUserForm(initialUserForm);
+  };
 
   return (
     <>
@@ -73,7 +79,15 @@ export const UserForm = ({ handlerAddUser, initialUserForm, userSelected, handle
         <button className="btn btn-primary" type="submit">
           {id > 0 ? "Editar" : "Crear"}
         </button>
-        <button className="btn btn-primary mx-2" type="button" onClick={() => onCloseForm()}>Cerrar</button>
+        {!handlerCloseForm || (
+          <button
+            className="btn btn-primary mx-2"
+            type="button"
+            onClick={() => onCloseForm()}
+          >
+            Cerrar
+          </button>
+        )}
       </form>
     </>
   );
