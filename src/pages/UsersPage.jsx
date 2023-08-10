@@ -1,6 +1,5 @@
 import { UserModalForm } from "../components/UserModalForm";
 import { UsersList } from "../components/UsersList";
-import { useUsers } from "../hook/useUsers";
 
 export const UsersPage = ({
   users,
