@@ -14,7 +14,7 @@ export const RegisterPage = ({ handlerAddUser, initialUserForm, users=[] }) => {
 
   return (
     <div className="container my-4">
-      <h4>Registro de Usuarios</h4>
+      <h4>{ userSelected.id > 0 ? 'Editar' : 'Registrar'}</h4>
       <div className="row">
         <div className="col">
           <UserForm
