@@ -50,6 +50,7 @@ export const UserRoutes = ({ handlerLogout, login }) => {
           path="users/edit/:id"
           element={
             <RegisterPage
+              users={users}
               handlerAddUser={handlerAddUser}
               initialUserForm={initialUserForm}
             />
