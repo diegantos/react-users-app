@@ -35,6 +35,14 @@ export const UserForm = ({
       );
       return;
     }
+    if (!email.includes('@')) {
+      Swal.fire(
+        "Error de validación de email",
+        "El email debe incluir @",
+        "error"
+      );
+      return
+    }
 
     handlerAddUser(userForm);
     setUserForm(initialUserForm);
