@@ -1,13 +1,33 @@
-import { UserContext } from "./UserContext"
+import { UserContext } from "./UserContext";
 
-export const UserProvider  = ({children}) => {
-    return(
-        <UserContext.Provider value={
-            {
+export const UserProvider = ({ children }) => {
+  const {
+    users,
+    userSelected,
+    initialUserForm,
+    visibleForm,
+    handlerAddUser,
+    handlerRemoveUser,
+    handlerUserSelectedForm,
+    handlerOpenForm,
+    handlerCloseForm,
+  } = useUsers();
 
-            }
-        }>
-            {children}
-        </UserContext.Provider>
-    )
-}
+  return (
+    <UserContext.Provider
+      value={{
+        users,
+        userSelected,
+        initialUserForm,
+        visibleForm,
+        handlerAddUser,
+        handlerRemoveUser,
+        handlerUserSelectedForm,
+        handlerOpenForm,
+        handlerCloseForm,
+      }}
+    >
+      {children}
+    </UserContext.Provider>
+  );
+};
