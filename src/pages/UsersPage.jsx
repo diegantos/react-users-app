@@ -1,7 +1,11 @@
+import { useContext } from "react";
 import { UserModalForm } from "../components/UserModalForm";
 import { UsersList } from "../components/UsersList";
+import { UserContext } from "../context/UserContext";
 
-export const UsersPage = ({
+export const UsersPage = () => {
+
+  const {
   users,
   userSelected,
   initialUserForm,
@@ -11,7 +15,7 @@ export const UsersPage = ({
   handlerUserSelectedForm,
   handlerOpenForm,
   handlerCloseForm,
-}) => {
+  } = useContext(UserContext)
 
   return (
     <>

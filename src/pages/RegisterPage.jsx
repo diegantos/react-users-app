@@ -5,7 +5,7 @@ import { UserContext } from "../context/UserContext";
 
 export const RegisterPage = () => {
 
-  const {handlerAddUser, initialUserForm, users=[]} = useContext(UserContext)
+  const { initialUserForm, users=[]} = useContext(UserContext)
   const [userSelected, setUserSelected] = useState(initialUserForm);
 
   const { id } = useParams()
@@ -24,8 +24,6 @@ export const RegisterPage = () => {
         <div className="col">
           <UserForm
             userSelected={userSelected}
-            handlerAddUser={handlerAddUser}
-            initialUserForm={initialUserForm}
           />
         </div>
       </div>
