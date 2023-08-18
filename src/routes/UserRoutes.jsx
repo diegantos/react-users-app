@@ -6,7 +6,6 @@ import { useUsers } from "../hook/useUsers";
 import { UserProvider } from "../context/UserProvider";
 
 export const UserRoutes = ({ handlerLogout, login }) => {
-  
 
   return (
     <>

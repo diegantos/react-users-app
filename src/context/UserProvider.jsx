@@ -1,3 +1,4 @@
+import { useUsers } from "../hook/useUsers";
 import { UserContext } from "./UserContext";
 
 export const UserProvider = ({ children }) => {
