@@ -7,25 +7,14 @@ export const UsersPage = () => {
 
   const {
   users,
-  userSelected,
-  initialUserForm,
   visibleForm,
-  handlerAddUser,
-  handlerRemoveUser,
-  handlerUserSelectedForm,
   handlerOpenForm,
-  handlerCloseForm,
   } = useContext(UserContext)
 
   return (
     <>
       {!visibleForm || (
-        <UserModalForm
-          userSelected={userSelected}
-          initialUserForm={initialUserForm}
-          handlerAddUser={handlerAddUser}
-          handlerCloseForm={handlerCloseForm}
-        />
+        <UserModalForm/>
       )}
       <div className="container my-4">
         <h2>App de usuarios</h2>
@@ -45,11 +34,7 @@ export const UsersPage = () => {
                 No hay usuarios creados en el sistema
               </div>
             ) : (
-              <UsersList
-                handlerUserSelectedForm={handlerUserSelectedForm}
-                handlerRemoveUser={handlerRemoveUser}
-                users={users}
-              />
+              <UsersList />
             )}
           </div>
         </div>

@@ -2,7 +2,6 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import { UsersPage } from "../pages/UsersPage";
 import { Navbar } from "../components/layout/Navbar";
 import { RegisterPage } from "../pages/RegisterPage";
-import { useUsers } from "../hook/useUsers";
 import { UserProvider } from "../context/UserProvider";
 
 export const UserRoutes = ({ handlerLogout, login }) => {
@@ -31,20 +30,13 @@ export const UserRoutes = ({ handlerLogout, login }) => {
           <Route
             path="users/register"
             element={
-              <RegisterPage
-                handlerAddUser={handlerAddUser}
-                initialUserForm={initialUserForm}
-              />
+              <RegisterPage />
             }
           />
           <Route
             path="users/edit/:id"
             element={
-              <RegisterPage
-                users={users}
-                handlerAddUser={handlerAddUser}
-                initialUserForm={initialUserForm}
-              />
+              <RegisterPage />
             }
           />
           <Route path="/" element={<Navigate to="/users" />} />
