@@ -13,31 +13,15 @@ export const UserRoutes = ({ handlerLogout, login }) => {
         <Routes>
           <Route
             path="users"
-            element={
-              <UsersPage
-                users={users}
-                userSelected={userSelected}
-                initialUserForm={initialUserForm}
-                visibleForm={visibleForm}
-                handlerAddUser={handlerAddUser}
-                handlerRemoveUser={handlerRemoveUser}
-                handlerUserSelectedForm={handlerUserSelectedForm}
-                handlerOpenForm={handlerOpenForm}
-                handlerCloseForm={handlerCloseForm}
-              />
-            }
+            element={<UsersPage />}
           />
           <Route
             path="users/register"
-            element={
-              <RegisterPage />
-            }
+            element={<RegisterPage />}
           />
           <Route
             path="users/edit/:id"
-            element={
-              <RegisterPage />
-            }
+            element={<RegisterPage />}
           />
           <Route path="/" element={<Navigate to="/users" />} />
         </Routes>
