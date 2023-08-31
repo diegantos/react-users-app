@@ -4,12 +4,12 @@ import { Navbar } from "../components/layout/Navbar";
 import { RegisterPage } from "../pages/RegisterPage";
 import { UserProvider } from "../context/UserProvider";
 
-export const UserRoutes = ({ handlerLogout, login }) => {
+export const UserRoutes = () => {
 
   return (
     <>
       <UserProvider>
-        <Navbar handlerLogout={handlerLogout} login={login} />
+        <Navbar />
         <Routes>
           <Route
             path="users"

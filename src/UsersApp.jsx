@@ -1,5 +1,4 @@
 import { LoginPage } from "./auth/pages/LoginPage";
-import { useAuth } from "./auth/hooks/useAuth";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { UserRoutes } from "./routes/UserRoutes";
 import { useContext } from "react";
@@ -14,14 +13,11 @@ export const UsersApp = () => {
       {login.isAuth ? (
         <Route
           path="/*"
-          element={<UserRoutes login={login} handlerLogout={handlerLogout} />}
+          element={<UserRoutes />}
         />
       ) : (
         <>
-          <Route
-            path="/login"
-            element={<LoginPage handlerLogin={handlerLogin} />}
-          />
+          <Route path="/login" element={<LoginPage />} />
           <Route path="/*" element={<Navigate to="/login" />} />
         </>
       )}
