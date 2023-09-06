@@ -9,7 +9,7 @@ export const UsersPage = () => {
   users,
   visibleForm,
   handlerOpenForm,
-  getUsers
+  getUsers,
   } = useContext(UserContext)
 
   useEffect(() => {
