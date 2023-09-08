@@ -1,7 +1,7 @@
 import { useReducer, useState } from "react";
 import { usersReducer } from "../reducers/usersReducer";
 import Swal from "sweetalert2";
-import { findAll, save } from "../services/userService";
+import { findAll, remove, save, update } from "../services/userService";
 
 const initialUsers = [];
 
@@ -31,6 +31,8 @@ export const useUsers = () => {
     let response
     if(user.id === 0){
       response = await save(user)
+    }else{
+      response = await update(user)
     }
 
     dispatch({
@@ -60,6 +62,7 @@ export const useUsers = () => {
       confirmButtonText: "Eliminar",
     }).then((result) => {
       if (result.isConfirmed) {
+        remove(id)
         dispatch({
             type: "removeUser",
             payload: id,
