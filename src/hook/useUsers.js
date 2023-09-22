@@ -29,25 +29,30 @@ export const useUsers = () => {
   const handlerAddUser = async (user) => {
 
     let response
-    if(user.id === 0){
-      response = await save(user)
-    }else{
-      response = await update(user)
+    try {
+      if (user.id === 0) {
+        response = await save(user);
+      } else {
+        response = await update(user);
+      }
+
+      dispatch({
+        type: user.id === 0 ? "addUser" : "updateUser",
+        payload: response.data,
+      });
+
+      Swal.fire(
+        user.id === 0 ? "Usuario creado" : "Usuario actualizado",
+        user.id === 0
+          ? "El usuario ha sido creado correctamente"
+          : "El usuario ha sido actualizado correctamente",
+        "success"
+      );
+      handlerCloseForm();
+      // navigate("/users");
+    } catch (error) {
+      console.error(error)
     }
-
-    dispatch({
-      type: (user.id === 0) ? 'addUser' : 'updateUser',
-      payload: response.data,
-    });
-
-    Swal.fire(
-      user.id === 0 ? "Usuario creado" : "Usuario actualizado",
-      user.id === 0
-        ? "El usuario ha sido creado correctamente"
-        : "El usuario ha sido actualizado correctamente",
-      "success"
-    );
-    handlerCloseForm()
   };
 
   const handlerRemoveUser = (id) => {
